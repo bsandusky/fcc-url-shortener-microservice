@@ -1,0 +1,20 @@
+{
+  "name": "bp-node-express-mocha-chai",
+  "version": "1.0.0",
+  "description": "Node.js application boilerplate running Express with Mocha, Chai, and Nodemon",
+  "main": "app.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "npm test && ./node_modules/nodemon/bin/nodemon.js app.js"
+  },
+  "author": "bsandusky",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  }
+}
