@@ -27,4 +27,13 @@ describe("db", () => {
             assert.strictEqual(output, true)
         })
     })
+    
+    describe("getShortUrlCode()", () => {
+        
+        it("should return document if existing in the database", () => {
+            db.insert("http://www.brett.com")
+            let output = db.getShortUrlCode("http://www.brett.com")
+            assert.strictEqual(output, 1234)
+        })
+    })
 })
