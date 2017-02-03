@@ -1,7 +1,7 @@
 {
-  "name": "bp-node-express-mocha-chai",
+  "name": "fcc-url-shortener-microservice",
   "version": "1.0.0",
-  "description": "Node.js application boilerplate running Express with Mocha, Chai, and Nodemon",
+  "description": "FCC URL Shortener Microservice",
   "main": "app.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha && ./node_modules/nodemon/bin/nodemon.js app.js",
