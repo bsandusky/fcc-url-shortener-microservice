@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.1",
-    "forever": "^0.15.3"
+    "forever": "^0.15.3",
+    "mongodb": "^2.2.22"
   },
   "devDependencies": {
     "chai": "^3.5.0",
