@@ -10,8 +10,13 @@ describe("inputValidation", () => {
       validate("hello, world")
     })
     
-    it("should return false if string is not a url", () => {
+    it("should return false if string is not a url_string", () => {
       let output = validate("hello, world")
+      assert.isFalse(output)
+    })
+    
+    it("should return false if string is not a url_numbers", () => {
+      let output = validate("123456789")
       assert.isFalse(output)
     })
     
