@@ -4,13 +4,15 @@
   "description": "FCC URL Shortener Microservice",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha && ./node_modules/nodemon/bin/nodemon.js app.js",
+    "test": "./node_modules/mocha/bin/mocha --watch test",
+    "monitor": "./node_modules/nodemon/bin/nodemon.js --ignore test/ app.js",
     "start": "node app.js"
   },
   "author": "bsandusky",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "forever": "^0.15.3"
   },
   "devDependencies": {
     "chai": "^3.5.0",
