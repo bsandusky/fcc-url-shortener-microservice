@@ -10,7 +10,7 @@ module.exports = class DB {
     insert(input) {
         if (!validate(input)) return null
         
-        let doc = {original_url: input, short_url_code: 1234}
+        let doc = {original_url: input}
         mongo.connect(url, (err, db) => {
             if (err) throw err
             db.collection('urls').update({original_url: input}, doc, {upsert: true})
