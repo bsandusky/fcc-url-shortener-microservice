@@ -24,16 +24,25 @@ describe("db", () => {
         
         it("should return true if valid document inserted into database", () => {
             let output = db.insert("http://www.brett.com")
-            assert.strictEqual(output, true)
+            assert.isNotNull(output)
         })
     })
     
     describe("getShortUrlCode()", () => {
         
-        it("should return document if existing in the database", () => {
-            db.insert("http://www.brett.com")
-            let output = db.getShortUrlCode("http://www.brett.com")
-            assert.strictEqual(output, 1234)
+        it("should return null if url does not exist in the database", () => {
+            db.getShortUrlCode("https://www.notindatabse.com", (doc) => {
+                assert.isNull(doc)
+            })
+        })
+        
+        it("should return short_url_code if url exists in the database", () => {
+            let output = db.insert("http://www.brett.com")
+            assert.isNotNull(output)
+            
+            db.getShortUrlCode("http://www.brett.com", (doc) => {
+               assert.strictEqual(doc, 1234)
+            })
         })
     })
 })
