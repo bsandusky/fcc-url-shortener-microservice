@@ -1,50 +1,65 @@
-'use strict'
-const DB = require("../DB")
-const assert = require("chai").assert
+// 'use strict'
+// const DB = require("../DB")
+// const assert = require("chai").assert
 
-describe("db", () => {
+// describe("db", () => {
     
-    let db = null;
+//     let db = null;
     
-    before(() => { db = new DB() })
+//     before(() => { db = new DB() })
   
-    describe("insert()", () => {
+//     describe("insert()", () => {
         
-        it("should return null when insert invalid document into database", () => {
-            let output = db.insert("hello, world")
-            assert.isNull(output)
-        })
+//         it("should return null when insert invalid document into database", () => {
+//             let output = db.insert("hello, world")
+//             assert.isNull(output)
+//         })
     
-        it("should insert validated document into database", () => {
-            let output = db.insert("https://www.google.com")
-            assert.isNotNull(output)
-        })
+//         it("should insert validated document into database", () => {
+//             let output = db.insert("https://www.google.com")
+//             assert.isNotNull(output)
+//         })
         
-        it("should insert validated document into database", () => {
-            let output = db.insert("http://www.google.com")
-            assert.isNotNull(output)
-        })
+//         it("should insert validated document into database", () => {
+//             let output = db.insert("http://www.google.com")
+//             assert.isNotNull(output)
+//         })
         
-        it("should return true if valid document inserted into database", () => {
-            let output = db.insert("http://www.brett.com")
-            assert.isNotNull(output)
-        })
-    })
+//         it("should return true if valid document inserted into database", () => {
+//             let output = db.insert("http://www.brett.com")
+//             assert.isNotNull(output)
+//         })
+//     })
     
-    describe("getShortUrlCode()", () => {
+//     describe("getShortUrlCode()", () => {
         
-        it("should return null if url does not exist in the database", () => {
-            db.getShortUrlCode("https://www.notindatabse.com", (result) => {
-                assert.isNull(result)
-            })
-        })
+//         it("should return null if url does not exist in the database", () => {
+//             db.getShortUrlCode("https://www.notindatabse.com", (result) => {
+//                 assert.isNull(result)
+//             })
+//         })
         
-        it("should return short_url_code if url exists in the database", () => {
-            db.insert("https://www.brett.com")
+//         it("should return short_url_code if url exists in the database", () => {
+//             db.insert("https://www.brett.com")
             
-            db.getShortUrlCode("https://www.brett.com", (result) => {
-               assert.strictEqual(result, 1234)
-            })
-        })
-    })
-})
+//             db.getShortUrlCode("https://www.brett.com", (result) => {
+//               assert.strictEqual(result, 1234)
+//             })
+//         })
+//     })
+    
+//     describe("getUrlFromShortUrlCode()", () => {
+        
+//         it("should return null if short_url_code does not exist in the database", () => {
+//             db.getUrlFromShortUrlCode(9999, (result) => {
+//                 assert.isNull(result)
+//             })
+//         })
+        
+//         it("should return original_url if short_url_code exists in the database", () => {
+//             db.getUrlFromShortUrlCode(1234, (result) => {
+//                 assert.strictEqual(result, "https://www.google.com")
+//             })
+//         })
+//     })
+// })

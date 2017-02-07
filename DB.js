@@ -1,26 +1,20 @@
 'use strict'
 const mongo = require("mongodb").MongoClient  
-const validate = require("./inputValidation")
 const url = 'mongodb://localhost:27017/test'
 
 module.exports = class DB {
     
     constructor(){}
     
-    insert(input) {
-        if (!validate(input)) return null
-        
-        let doc = {original_url: input}
+    insert(urlObj) {
         mongo.connect(url, (err, db) => {
             if (err) throw err
-            db.collection('urls').update({original_url: input}, doc, {upsert: true})
+            db.collection('urls').update({original_url: urlObj.original_url}, urlObj, {upsert: true})
             db.close()
         })
     }
     
     getShortUrlCode(input, callback) {
-        if (!validate(input)) return null
-        
         mongo.connect(url, (err, db) => {
             if (err) throw err
             db.collection('urls').findOne({original_url: input}, (err, doc) => {
