@@ -28,7 +28,6 @@ app.get('/:input', (req, res) => {
             res.send({error: "short_url_code not found in database"})
         }
     })
-    
 })
 
 app.get('/new/*', (req, res) => {
