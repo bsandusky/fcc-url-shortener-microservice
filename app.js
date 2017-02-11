@@ -18,13 +18,23 @@ app.get('/', (req, res) => {
 })
 
 app.get('/:input', (req, res) => {
-    res.send(req.params.input)
+    
+    const db = new DB()
+    db.getRecordByCode(req.params.input, (result) => {
+        
+        if (result) {
+            res.redirect(result.original_url)
+        } else {
+            res.send({error: "short_url_code not found in database"})
+        }
+    })
+    
 })
 
 app.get('/new/*', (req, res) => {
     
     if (!validate(req.params[0])) {
-        res.send({error: "Not a valid url input"})
+        res.send({error: "not a valid url input"})
 
     } else {
         const db = new DB()
@@ -32,12 +42,12 @@ app.get('/new/*', (req, res) => {
         db.getRecordByUrl(req.params[0], (result) => {
             
             if (result) {
-                res.send({error: "Duplicate record", urlInfo: result})
+                res.send({record_found: "duplicate record", urlInfo: result})
         
             } else {
                 let urlObj = {original_url: req.params[0], short_url_code: generateURLCode()}
                 db.insert(urlObj)
-                res.send({success: "Entry completed", urlInfo: urlObj})
+                res.send({success: "entry completed", urlInfo: urlObj})
             }
         })
     }

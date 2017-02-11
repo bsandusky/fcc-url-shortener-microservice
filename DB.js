@@ -6,6 +6,17 @@ module.exports = class DB {
     
     constructor(){}
     
+    getRecordByCode(input, callback) {
+        mongo.connect(url, (err, db) => {
+            if (err) throw err
+            db.collection('urls').findOne({short_url_code: input}, (err, result) => {
+                if (err) throw err
+                db.close()
+                callback(result)
+            })
+        })
+    }
+    
     getRecordByUrl(input, callback) {
            mongo.connect(url, (err, db) => {
             if (err) console.log(err)
