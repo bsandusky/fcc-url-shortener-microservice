@@ -1,6 +1,6 @@
 'use strict'
 const mongo = require("mongodb").MongoClient
-const url = "mongodb://localhost:27017/test"
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/test"
 
 module.exports = class DB {
     

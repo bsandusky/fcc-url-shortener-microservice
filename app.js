@@ -5,14 +5,6 @@ const validate = require("./inputValidation")
 const generateURLCode = require("./generateURLCode")
 const app = express()
 
-app.use((req, res, next) => {
-    
-    if (!process.env.APP_URL) {
-        process.env.APP_URL = "https://fcc-api-projects-bsandusky.c9users.io/"
-    }
-    next()
-})
-
 app.get('/', (req, res) => {
     res.send("Hello, world")
 })
