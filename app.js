@@ -5,8 +5,10 @@ const validate = require("./inputValidation")
 const generateURLCode = require("./generateURLCode")
 const app = express()
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-    res.send("Hello, world")
+    res.render('index')
 })
 
 app.get('/:input', (req, res) => {
